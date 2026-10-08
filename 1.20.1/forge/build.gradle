@@ -1,0 +1,54 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.minecraftforge.gradle'
+}
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+    copyIdeResources = true
+
+    runs {
+        client {
+            workingDirectory = layout.projectDirectory.dir('runs/client')
+            mods {
+                create(mod_id) {
+                    source sourceSets.main
+                }
+            }
+        }
+        server {
+            workingDirectory = layout.projectDirectory.dir('runs/server')
+            mods {
+                create(mod_id) {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compileOnly('net.fabricmc:sponge-mixin:0.13.2+mixin.0.8.5')
+    compileOnly(annotationProcessor('io.github.llamalad7:mixinextras-common:0.3.5'))
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    implementation fg.deobf('caxton:caxton:0.6.4-forge')
+}
+
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements'].each { variant ->
+    configurations.named(variant) {
+        attributes {
+            attribute(loaderAttribute, 'forge')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant ->
+        configurations.named(variant) {
+            attributes {
+                attribute(loaderAttribute, 'forge')
+            }
+        }
+    }
+}
