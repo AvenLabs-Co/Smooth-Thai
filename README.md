@@ -38,6 +38,8 @@ Smoother, more readable Thai text for Minecraft — Caxton (SDF font rendering) 
 2. Grab the matching jar from the [latest release](https://github.com/AvenLabs-Co/Smooth-Thai/releases).
 3. Drop it into your `mods` folder and launch — done.
 
+> ⚠️ **Client-side only** — install on the client. Do not put it on a dedicated server (the bundled Caxton font engine is client-only and will crash a server).
+
 ```text
 mods/
 └── SmoothThai-<mc version>-<loader>-0.1.0.jar

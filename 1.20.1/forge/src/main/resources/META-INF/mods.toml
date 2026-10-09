@@ -1,11 +1,13 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
 license = "${license}"
+clientSideOnly = true
 [[mods]]
 modId = "${mod_id}"
 version = "${version}"
 displayName = "${mod_name}"
-iconFile = "${mod_id}.png"
+displayURL = "https://github.com/AvenLabs-Co/Smooth-Thai"
+logoFile = "${mod_id}.png"
 authors = "${mod_author}"
 description = '''${description}'''
 [[dependencies.${mod_id}]]
