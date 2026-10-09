@@ -33,6 +33,12 @@ Download the jar matching your Minecraft version and mod loader (Fabric / Forge 
 </details>
 
 <details>
+<summary><b>Known issues</b></summary>
+
+* **Shader packs (Iris, etc.):** Caxton's SDF text rendering relies on custom core shaders, which shader loaders replace — sign text and other in-world text may become invisible while shaders are enabled. Workaround: disable shaders when using SmoothThai. (Upstream Caxton limitation.)
+</details>
+
+<details>
 <summary><b>Supported Versions</b></summary>
 
 * Minecraft 1.20.1 — Fabric, Forge

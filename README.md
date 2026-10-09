@@ -42,8 +42,12 @@ Smoother, more readable Thai text for Minecraft — Caxton (SDF font rendering) 
 
 ```text
 mods/
-└── SmoothThai-<mc version>-<loader>-0.1.0.jar
+└── SmoothThai-<mc version>-<loader>-0.1.1.jar
 ```
+
+## ⚠️ Known issues
+
+* **Shader packs (Iris, etc.):** Caxton's SDF text rendering uses custom core shaders, which shader loaders replace — sign text and other in-world text may become invisible while shaders are enabled. Workaround: disable shaders / remove Iris when using SmoothThai. (Upstream Caxton limitation, cannot be fixed in this mod.)
 
 ## 🛠️ Development
 
@@ -56,10 +60,10 @@ cd ../1.21.1 && ../gradlew build # Fabric + NeoForge
 
 | Version | Loader | Output |
 |---------|--------|--------|
-| 1.20.1 | Fabric | `SmoothThai-1.20.1-fabric-0.1.0.jar` |
-| 1.20.1 | Forge  | `SmoothThai-1.20.1-forge-0.1.0.jar` |
-| 1.21.1 | Fabric | `SmoothThai-1.21.1-fabric-0.1.0.jar` |
-| 1.21.1 | NeoForge | `SmoothThai-1.21.1-neoforge-0.1.0.jar` |
+| 1.20.1 | Fabric | `SmoothThai-1.20.1-fabric-0.1.1.jar` |
+| 1.20.1 | Forge  | `SmoothThai-1.20.1-forge-0.1.1.jar` |
+| 1.21.1 | Fabric | `SmoothThai-1.21.1-fabric-0.1.1.jar` |
+| 1.21.1 | NeoForge | `SmoothThai-1.21.1-neoforge-0.1.1.jar` |
 
 <details>
 <summary><b>📂 Project layout</b></summary>
