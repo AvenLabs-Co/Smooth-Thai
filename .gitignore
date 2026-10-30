@@ -34,3 +34,7 @@ desktop.ini
 *.class
 nohup.out
 replay_pid*
+
+# python
+__pycache__/
+*.pyc

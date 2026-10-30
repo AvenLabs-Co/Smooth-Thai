@@ -13,8 +13,13 @@ java {
     withJavadocJar()
 }
 
+def licenseFile = rootProject.file('../../LICENSE')
+if (!licenseFile.exists()) {
+    licenseFile = rootProject.file('LICENSE')
+}
+
 tasks.withType(Jar).configureEach {
-    from(rootProject.file('LICENSE')) {
+    from(licenseFile) {
         rename { "${it}_${mod_name}" }
     }
 }
@@ -50,14 +55,17 @@ processResources {
             'neoforge_version'             : neoforge_version,
             'neoforge_loader_version_range': neoforge_loader_version_range,
             'credits'                      : credits,
-            'java_version'                 : java_version
+            'java_version'                 : java_version,
+            'pack_format'                  : project.findProperty('pack_format') ?: '8',
+            'caxton_version'               : project.findProperty('caxton_version') ?: '',
+            'caxton_version_range'         : project.findProperty('caxton_version_range') ?: ''
     ]
 
     var jsonExpandProps = expandProps.collectEntries {
         key, value -> [(key): value instanceof String ? value.replace('\n', '\\\\n') : value]
     }
 
-    filesMatching(['META-INF/mods.toml', 'META-INF/neoforge.mods.toml']) {
+    filesMatching(['META-INF/mods.toml', 'META-INF/neoforge.mods.toml', 'META-INF/jarjar/metadata.json']) {
         expand expandProps
     }
 

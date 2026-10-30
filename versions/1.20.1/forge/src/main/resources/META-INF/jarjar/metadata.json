@@ -1,0 +1,13 @@
+{
+  "jars": [
+    {
+      "identifier": { "group": "caxton", "artifact": "caxton" },
+      "version": {
+        "range": "${caxton_version_range}",
+        "artifactVersion": "${caxton_version}-FORGE"
+      },
+      "path": "META-INF/jarjar/caxton-${caxton_version}-FORGE.jar",
+      "isObfuscated": true
+    }
+  ]
+}
